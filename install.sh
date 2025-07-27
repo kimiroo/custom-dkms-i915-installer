@@ -41,7 +41,7 @@ echo "[INFO] Setting GRUB to update removable EFI bootloader..."
 echo 'grub-efi-amd64 grub2/force_efi_extra_removable boolean true' | debconf-set-selections -v -u
 
 echo "[INFO] Reinstalling grub-efi-amd64 package..."
-sudo apt install --reinstall -y grub-efi-amd64
+apt-get install --reinstall -y grub-efi-amd64
 
 echo "[INFO] Updating initramfs..."
 update-initramfs -u -k all
