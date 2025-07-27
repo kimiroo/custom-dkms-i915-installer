@@ -37,6 +37,12 @@ dkms install -m "$VERSION" -k "$(uname -r)" --force
 echo "[INFO] DKMS installation complete. Status:"
 dkms status
 
+echo "[INFO] Setting GRUB to update removable EFI bootloader..."
+echo 'grub-efi-amd64 grub2/force_efi_extra_removable boolean true' | debconf-set-selections -v -u
+
+echo "[INFO] Reinstalling grub-efi-amd64 package..."
+sudo apt install --reinstall -y grub-efi-amd64
+
 echo "[INFO] Updating initramfs..."
 update-initramfs -u -k all
 

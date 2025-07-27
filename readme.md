@@ -34,15 +34,29 @@ The installer script handles:
 Run the provided installation script:
 
 ```bash
-sudo ./install-dkms-i915.sh
+chmod +x ./install.sh
+./install.sh
+```
+
+or
+
+```bash
+curl -sSL https://raw.githubusercontent.com/kimiroo/custom-dkms-i915-installer/refs/heads/main/install.sh | bash
 ```
 
 ### Verification
 
-Use the provided `post-reboot-check.sh` script to verify proper installation:
+Use the provided `check.sh` script to verify proper installation:
 
 ```bash
-sudo ./post-reboot-check.sh
+chmod +x ./check.sh
+./check.sh
+```
+
+or
+
+```bash
+curl -sSL https://raw.githubusercontent.com/kimiroo/custom-dkms-i915-installer/refs/heads/main/check.sh | bash
 ```
 
 ### License
