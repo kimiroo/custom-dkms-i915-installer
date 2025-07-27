@@ -56,6 +56,46 @@ or
 ```bash
 curl -sSL https://raw.githubusercontent.com/kimiroo/custom-dkms-i915-installer/refs/heads/main/check.sh | bash
 ```
+\
+\
+Output of `check.sh` should look something like this:
+```bash
+[CHECK] Kernel: 6.8.12-11-pve
+[CHECK] DKMS Status: i915-sriov-dkms/2025.07.22, 6.8.12-11-pve, x86_64: installed
+[CHECK] Module File Path: /lib/modules/6.8.12-11-pve/updates/dkms/i915.ko
+[INFO]  Detected PCI Bus Number: 00:02.0
+
+[CHECK] sriov_numvfs: 7
+[CHECK] enable_guc: 3
+
+[CHECK] Detected PCI VGAs:
+00:02.0 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]
+00:02.1 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]
+00:02.2 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]
+00:02.3 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]
+00:02.4 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]
+00:02.5 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]
+00:02.6 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]
+00:02.7 VGA compatible controller: Intel Corporation Alder Lake-N [UHD Graphics]
+
+[CHECK] dmesg - i915 drm initialization:
+[    4.643352] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.0 on minor 0
+[    5.215705] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.1 on minor 1
+[    5.221342] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.2 on minor 2
+[    5.227642] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.3 on minor 3
+[    5.233499] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.4 on minor 4
+[    5.238482] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.5 on minor 5
+[    5.242936] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.6 on minor 6
+[    5.247418] [drm] Initialized i915 1.6.0 20230929 for 0000:00:02.7 on minor 7
+
+[CHECK] dmesg - VFs enabled:
+[    5.247604] i915 0000:00:02.0: Enabled 7 VFs
+
+[CHECK] /etc/sysfs.conf content:
+devices/pci0000:00/0000:00:02.0/sriov_numvfs = 7
+
+[INFO]  Post-reboot check complete.
+```
 
 ### License
 This project uses the MIT License. See LICENSE file for details.
