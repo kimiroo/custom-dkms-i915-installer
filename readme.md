@@ -60,6 +60,7 @@ or
 ```bash
 curl -sSL https://raw.githubusercontent.com/kimiroo/custom-dkms-i915-installer/refs/heads/main/check.sh | bash
 ```
+
 \
 \
 Output of `check.sh` should look something like this:
@@ -100,6 +101,7 @@ devices/pci0000:00/0000:00:02.0/sriov_numvfs = 7
 
 [INFO]  Post-reboot check complete.
 ```
+
 \
 \
 Following is a example of failed install:
@@ -126,12 +128,15 @@ devices/pci0000:00/0000:00:02.0/sriov_numvfs = 7
 
 [INFO]  Post-reboot check complete.
 ```
+
 This is caused by script installing the latest Linux kernel while installing dkms module for currently installed kernel version:
+
 1. System has Linux kernel 6.8.12-11-pve.
 2. Script installs latest Linux kernel 6.8.12-13-pve.
 3. Script builds and installs dkms module for 6.8.12-11-pve, since system still uses old version(6.8.12-11-pve).
 4. System reboots and now uses new 6.8.12-13-pve kernel.
 5. Kernel version mismatch occurs and system fails to load dkms module.
+
 In this case, re-running the install script to build and install new dkms module built for newly installed kernel will fix the issue.
 
 ### License
