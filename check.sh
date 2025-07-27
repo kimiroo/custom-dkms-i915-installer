@@ -6,7 +6,6 @@ PKG_KERNEL=$(echo "$DKMS_STATUS" | cut -d',' -f2 | xargs | head -n1)
 PCI_BUS=$(lspci | grep VGA | head -n1 | awk '{print $1}')
 
 # Kernel version
-echo
 echo "[CHECK] Kernel: $CURRENT_KERNEL"
 
 # DKMS Status
@@ -46,6 +45,7 @@ else
 fi
 
 # Check PCI VGAs
+echo
 echo "[CHECK] Detected PCI VGAs:"
 lspci | grep "VGA"
 echo
@@ -74,4 +74,3 @@ fi
 
 echo
 echo "[INFO]  Post-reboot check complete."
-echo
