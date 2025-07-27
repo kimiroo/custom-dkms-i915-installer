@@ -25,7 +25,9 @@ The installer script handles:
 
 ### Requirements
 
-- Proxmox VE 8.2 or newer with Linux kernel 6.8.x or compatible.
+- Proxmox VE 8.2 or newer
+- Linux kernel version supported by [i915-sriov-dkms](https://github.com/strongtz/i915-sriov-dkms)\
+  (6.8-6.15(-rc5) as of Jul 27, 2025)
 - Root privileges to run the installer.
 - Network access to clone the git repository.
 
