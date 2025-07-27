@@ -74,6 +74,7 @@ echo "[INFO] Rebuilding initramfs..."
 update-initramfs -u -k all
 
 echo "[INFO] Configuring sysfs for VF enablement..."
-echo "devices/pci0000:00/0000:00:02.0/sriov_numvfs = 7" > /etc/sysfs.conf
+PCI_BUS=$(lspci | grep VGA | head -n1 | awk '{print $1}')
+echo "devices/pci0000:00/0000:$PCI_BUS/sriov_numvfs = 7" > /etc/sysfs.conf
 
 echo "[INFO] Setup complete. Please reboot the system."
