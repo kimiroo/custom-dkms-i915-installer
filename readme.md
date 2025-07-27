@@ -34,7 +34,6 @@ The installer script handles:
 Run the provided installation script:
 
 ```bash
-chmod +x ./install.sh
 ./install.sh
 ```
 
@@ -49,7 +48,6 @@ curl -sSL https://raw.githubusercontent.com/kimiroo/custom-dkms-i915-installer/r
 Use the provided `check.sh` script to verify proper installation:
 
 ```bash
-chmod +x ./check.sh
 ./check.sh
 ```
 
